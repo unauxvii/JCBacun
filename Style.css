@@ -17,7 +17,7 @@ body {
   /* layers (first = top):
      1) white band that fades to transparent at top & bottom
      2) top banner PNG (fixed height)
-     3) bottom/background PNG (fills remaining area) */
+     (BACKGROUNDSTYLE2.png removed from body; now attached to Interests card pseudo) */
   background-image:
     linear-gradient(to bottom,
       rgba(255,255,255,0) 0%,
@@ -25,20 +25,17 @@ body {
       rgba(255,255,255,1) 80%,
       rgba(255,255,255,0.95) 88%,
       rgba(255,255,255,0) 100%),
-    url("BACKGROUNDSTYLE.jpg"),
-    url("BACKGROUNDSTYLE2.png");
+    url("BACKGROUNDSTYLE.jpg");
   background-size:
     100% 80vh,     /* gradient span */
-    100% 50vh,     /* top banner */
-    60% auto;      /* <- make bottom PNG smaller while preserving aspect ratio */
+    100% 50vh;     /* top banner */
 
   background-position:
-    center 147px,         /* gradient covers entire area */
-    top center,           /* top PNG banner */
-    center calc(100% - 260px); /* push bottom PNG up (adjust) */
+    center 147px,  /* gradient covers entire area */
+    top center;    /* top PNG banner */
 
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-attachment: scroll, scroll, scroll;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, scroll;
 }
 
 
@@ -193,12 +190,14 @@ body {
 
 /* PROFILE IMAGE */
 .profile-pic img {
-  margin-top: px; /* moves down */
-  margin-bottom: 20px; /* moves up */
-  height: 480px;
-  border-radius: 15px;
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards 1.2s;
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  max-height: 820px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
 }
 
 /* HEADINGS */
@@ -438,6 +437,178 @@ body {
   .container.about-section .profile-pic img {
     max-height: 520px;
   }
+
+  body {
+    padding-top: 120px; /* reduce top padding to fit top bar */
+    background-position:
+      center 100px,    /* move gradient up slightly on smaller screens */
+      top center,
+      center calc(100% - 160px);
+    background-size:
+      100% 120vh,
+      100% 180px,
+      70% auto;
+  }
+
+  .container {
+    width: 95%;
+    gap: 32px;
+    margin: 30px auto 0 auto;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 14px;
+    margin: 10px 0;
+  }
+
+  /* extra cards stack vertically */
+  .container.extra-cards .education-card,
+  .container.extra-cards .interests-card,
+  .container.extra-cards .contacts-card {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container.extra-cards .interests-card {
+    margin-top: 20px; /* reduce big offset for narrow screens */
+  }
+
+  /* about section stacks; profile becomes narrower column */
+  .container.about-section {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .container.about-section .about-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding-right: 0;
+  }
+  .container.about-section .profile-pic {
+    flex: 0 0 320px;
+    max-width: 320px;
+    margin-left: 0;
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .container.about-section .profile-pic img {
+    max-height: 520px;
+  }
+
+  /* top-bar adjustments */
+  .top-bar {
+    padding: 12px 20px;
+    background-size: 250% 100%;
+  }
+  .top-bar .logo { font-size: 1.05rem; }
+  .top-bar nav a { margin-left: 12px; font-size: 0.95rem; }
+
+  /* content text adjustments */
+  .card p,
+  .card ul,
+  .card li {
+    font-size: 1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  body {
+    padding-top: 100px;
+    background-position:
+      center 80px,
+      top center,
+      center calc(100% - 120px);
+    background-size:
+      100% 140vh,
+      100% 140px,
+      80% auto;
+  }
+
+  .container {
+    width: 98%;
+    gap: 18px;
+    margin: 20px auto 0 auto;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* stack everything full width */
+  .container.extra-cards .education-card,
+  .container.extra-cards .interests-card,
+  .container.extra-cards .contacts-card {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  /* about section: profile placed below content and full width */
+  .container.about-section {
+    flex-wrap: wrap;
+  }
+  .container.about-section .about-card,
+  .container.about-section .profile-pic {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .container.about-section .profile-pic {
+    order: 2;
+    flex: 1 1 100%;
+    padding: 10px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.9) 0%,
+      rgba(255,255,255,0.6) 20%,
+      rgba(255,255,255,0) 80%
+    );
+  }
+  .container.about-section .profile-pic img {
+    max-height: 420px;
+    border-radius: 8px;
+  }
+
+  /* top-bar stacks logo + nav into two rows for small screens */
+  .top-bar {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .top-bar nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6px;
+  }
+  .top-bar nav a {
+    margin-left: 0;
+    font-size: 0.95rem;
+  }
+
+  /* reduce skill pill sizes */
+  .skills span {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  /* contacts card full width & readable */
+  .contacts-card {
+    background: none;
+    padding: 10px 8px;
+  }
+  .contacts-card .contacts {
+    width: 100%;
+  }
+}
+
+/* final touch: ensure no huge fixed offsets remain on mobile */
+@media (max-width: 1200px) {
+  .container.extra-cards .interests-card {
+    margin-top: 40px; /* moderate offset for midsize screens */
+  }
 }
 @keyframes popUp {
   0% { opacity: 0; transform: translateY(60px) scale(1.1); }
@@ -464,4 +635,57 @@ body {
 
 .contacts-card p {
   color: #000000;
+}
+
+/* Tie BACKGROUNDSTYLE2.png to the Interests card so it moves with it */
+.container.extra-cards .interests-card {
+  position: relative;    /* establish positioning context */
+  isolation: isolate;    /* keep pseudo confined to this card's stacking context */
+  z-index: 1;            /* put the card above its pseudo-element */
+  overflow: visible;     /* allow the pseudo (which sits outside the card bounds) to show */
+}
+
+/* remove/disable the pseudo on the single card (was placing image above other elements) */
+/*
+.container.extra-cards .interests-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -80px;
+  width: 60%;
+  padding-bottom: 40%;
+  background-image: url("BACKGROUNDSTYLE2.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 0;
+}
+*/
+
+/* Attach the image to the parent container and push it behind everything */
+.container.extra-cards {
+  position: relative; /* positioning context for the pseudo */
+  z-index: 0;         /* ensure container sits above the pseudo which will be -1 */
+  overflow: visible;  /* allow larger pseudo to show outside container */
+}
+
+/* make BACKGROUNDSTYLE2 bigger and lift it up */
+.container.extra-cards::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 400px;           /* push the image up (more negative = higher) */
+  width: 80%;               /* increase width to make it bigger */
+  padding-bottom: 50%;      /* increase height while keeping aspect ratio */
+  background-image: url("BACKGROUNDSTYLE2.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain; /* preserve aspect ratio */
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: -1;              /* keep it behind the cards and page content */
 }
