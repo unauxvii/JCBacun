@@ -689,3 +689,49 @@ body {
   opacity: 0.95;
   z-index: -1;              /* keep it behind the cards and page content */
 }
+
+
+
+
+
+
+
+
+
+/* SECOND PAGE WOOHOOOOOOOO */
+/*EDUCATION AND ACHIEVEMENT PAGES*/
+
+/* Full-screen wrapper to center card */
+.single-education-wrapper {
+  display: flex;
+  justify-content: left; /* center horizontally */
+  align-items: center;     /* center vertically */
+  min-height: 100vh;       /* full viewport height */
+   background-image:
+    linear-gradient(to bottom,
+      rgba(22,20,31,0) 0%,
+      rgba(22,20,31,1) 5%,
+      rgba(22,20,31,1) 80%,
+      rgba(22,20,31,0.95) 88%,
+      rgba(22,20,31)100%);
+/* optional dark background */
+  padding: 100px;           /* small padding for mobile */
+}
+
+/* Single card styling */
+.single-education-card {
+  width: 100%;
+  max-width: 900px;        /* card max width */
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(22,20,31,0.95);
+  box-shadow: 0 0 30px rgba(255,0,55,0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 720px) {
+  .single-education-card {
+    width: 95%;
+    padding: 20px;
+  }
+}
