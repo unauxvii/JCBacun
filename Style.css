@@ -781,54 +781,103 @@
   .back-link a:hover {
     text-decoration: underline;
   }
-  /* Center the whole education section */
-  .single-education-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-  }
+ /* --- SINGLE EDUCATION PAGE FIX --- */
 
-  /* Make the card bigger and centered */
-  .single-education-card {
-    width: 75%;              /* adjust width here if you want wider/narrower */
-    max-width: 1100px;       /* ensures it doesn't get too huge on large screens */
-    margin: 0 auto;          /* centers it */
-  }
-  /* Global list styling in the education page */ 
-  .single-education-card ul {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 28px;      /* ← more indent for bullets */
-    padding-left: 10px;     /* extra breathing room */
-    list-style-position: outside;
-  }
+/* Wrapper: pushes card to top, left-aligned, full viewport height */
+.single-education-wrapper {
+  display: flex;
+  justify-content: flex-start; /* left align */
+  align-items: flex-start;     /* push card to top */
+  min-height: 100vh;
+  padding: 40px 40px;          /* small top/side padding */
+  background: linear-gradient(to bottom,
+      rgba(22,20,31,0) 0%,
+      rgba(22,20,31,1) 5%,
+      rgba(22,20,31,1) 80%,
+      rgba(22,20,31,0.95) 88%,
+      rgba(22,20,31,1) 100%);
+}
 
-  .single-education-card li {
-    margin-bottom: 4px;     /* small gap between bullet lines */
-    line-height: 1.6;
-  }
-/* Make all text inside the single-education card slightly smaller */
+/* Card: centered horizontally, max width */
+.single-education-card {
+  width: 75%;
+  max-width: 1100px;
+  margin: 0 auto;             /* horizontal center */
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(22,20,31,0.95);
+  box-shadow: 0 0 30px rgba(255,0,55,0.2);
+}
+
+/* Adjust text size for all elements inside card */
 .single-education-card,
 .single-education-card p,
 .single-education-card ul,
 .single-education-card li,
 .single-education-card h3,
 .single-education-card .meta {
-  font-size: 0.9rem; /* or tweak between 0.85rem–0.95rem depending on preference */
-  line-height: 1.5;  /* slightly tighter for smaller font */
+  font-size: 0.9rem;  /* slightly smaller */
+  line-height: 1.5;
 }
 
-/* Optional: scale headers slightly smaller */
+/* Headers slightly smaller */
 .single-education-card h3 {
-  font-size: 1.1rem; /* down from 1.25rem */
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #fff;
 }
 
-.single-education-wrapper {
-  display: flex;
-  justify-content: left; /* keep it left-aligned horizontally */
-  align-items: flex-start; /* push card to top instead of vertical center */
-  min-height: 100vh;
-  padding: 60px 40px; /* reduce top padding to push it further up */
+/* Meta info styling */
+.single-education-card .meta {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
 }
 
+/* List inside card */
+.single-education-card ul {
+  margin: 8px 0 8px 28px;  /* indent bullets */
+  padding-left: 10px;
+  list-style-position: outside;
+}
 
+.single-education-card li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+/* Individual education entry */
+.edu-entry {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 22px;
+  border-radius: 14px;
+  margin: 22px 0;
+  backdrop-filter: blur(8px);
+  transition: 0.25s ease;
+}
+
+.edu-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 0, 78, 0.25);
+}
+
+/* Responsive: smaller screens */
+@media (max-width: 720px) {
+  .single-education-wrapper {
+    padding: 20px;
+  }
+
+  .single-education-card {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .single-education-card h3 {
+    font-size: 1rem;
+  }
+
+  .single-education-card ul {
+    margin-left: 20px;
+  }
+}
