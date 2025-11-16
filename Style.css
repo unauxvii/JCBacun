@@ -881,3 +881,25 @@
     margin-left: 20px;
   }
 }
+
+/* FORCE readable font on all cards */
+.card, 
+.card p, 
+.card ul, 
+.card li, 
+.education-card .edu-main ul li, 
+.about-card .about {
+    font-size: 1.2rem !important; /* readable minimum */
+    line-height: 1.6 !important;
+}
+
+/* Single-education page */
+.single-education-card,
+.single-education-card p,
+.single-education-card ul,
+.single-education-card li,
+.single-education-card h3,
+.single-education-card .meta {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+}
