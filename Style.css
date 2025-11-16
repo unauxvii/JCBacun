@@ -823,4 +823,12 @@
   font-size: 1.1rem; /* down from 1.25rem */
 }
 
+.single-education-wrapper {
+  display: flex;
+  justify-content: left; /* keep it left-aligned horizontally */
+  align-items: flex-start; /* push card to top instead of vertical center */
+  min-height: 100vh;
+  padding: 60px 40px; /* reduce top padding to push it further up */
+}
+
 
