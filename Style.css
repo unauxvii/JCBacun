@@ -655,7 +655,7 @@ body {
   padding: 0.6rem;
   border-radius: 18px;
   width: 100%;
-  max-width: 240px;
+  max-width: 100px;
   border: 1px solid rgba(255, 95, 215, 0.22);
 }
 
@@ -684,6 +684,7 @@ body {
     margin: 0 auto;
   }
 }
+
 
 
 
