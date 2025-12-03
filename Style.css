@@ -617,7 +617,7 @@ body {
 }
 
 .batch-img {
-  width: 100%;
+  width: 70%;
   display: block;
   border-radius: 16px;
   object-fit: cover;
@@ -708,4 +708,5 @@ body {
     margin: 0 auto;
   }
 }
+
 
