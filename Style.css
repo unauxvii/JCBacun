@@ -576,7 +576,7 @@ body {
 /* Card background — use dark theme */
 .batch-card {
   max-width: 800px;
-  width: 70%;
+  width: 100%;
   background: #0b0e12;
   border-radius: 24px;
   padding: 2.5rem 2rem 2rem;
@@ -617,7 +617,7 @@ body {
 }
 
 .batch-img {
-  width: 70%;
+  width: 40%;
   display: block;
   border-radius: 16px;
   object-fit: cover;
@@ -687,6 +687,7 @@ body {
     margin: 0 auto;
   }
 }
+
 
 
 
