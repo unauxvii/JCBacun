@@ -676,27 +676,6 @@ body {
 }
 
 /* Previous button (magenta border) */
-.floating-btns-wrapper {
-  margin-top: 1.3rem;
-  display: flex;
-  justify-content: center;
-}
-
-.floating-btn {
-  padding: 0.55rem 1.3rem;
-  border-radius: 900px;
-  background: transparent;
-  border: 1px solid #ff1160;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: 0.2s;
-}
-
-.floating-btn:hover {
-  background: #ff5fd7;
-  color: #0b0e12;
-}
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -708,5 +687,6 @@ body {
     margin: 0 auto;
   }
 }
+
 
 
