@@ -569,7 +569,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1.5rem;
 }
 
 /* Card background — use dark theme */
@@ -685,6 +684,7 @@ body {
     margin: 0 auto;
   }
 }
+
 
 
 
